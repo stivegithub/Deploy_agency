@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
       </div>
       <div></div>
-      <div className=" bg-white text-center text-black py-2 px-0 ">
+      <div className=" bg-white text-center text-black pt-2 px-0 ">
         <div>
           designed by{" "}
           <a
@@ -69,7 +69,7 @@ export default function Footer() {
             digital way cameroun
           </a>
         </div>
-        <div className=" bg-black text-white">
+        <div className=" bg-black text-white px-1">
           <Copyright />
           2023
         </div>

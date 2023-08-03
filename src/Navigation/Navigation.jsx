@@ -114,7 +114,7 @@ export default function Navigation() {
                 bienvenue chez{" "}
                 <span>
                   {" "}
-                  <span className="  boost fw-bold">Boost 237</span>
+                  <span className="  boost fw-bold">Nos prestations</span>
                 </span>{" "}
               </p>{" "}
               Nous creons des solutions <b>Digitale</b> pour votre bussiness et
