@@ -10,7 +10,11 @@ import Footer from "../Footer/Footer";
 export default function Navigation() {
   const [toggle, settoggle] = useState(false);
   const [active, setactive] = useState("");
-  const navlinks = ["accueil", "contact", "equipe"];
+  const navlinks = [
+    { id: "1", accueil: "Accueil", ref: "accueil" },
+    { id: "2", accueil: "Contact", ref: "equipe" },
+    { id: "3", accueil: "Equipe", ref: "contact" },
+  ];
 
   const Prestation = ({ imag, title }) => {
     return (
@@ -48,17 +52,16 @@ export default function Navigation() {
             {navlinks.map((link) => (
               <li
                 className={`${
-                  active === link ? "text-white" : " text-gray-400"
+                  active === link.accueil ? "text-white" : " text-gray-400"
                 } hover:text-white text-[18px] `}
-                key={link.id}
               >
                 <a
-                  href={`#${link.id}`}
+                  href={`#${link.ref}`}
                   onClick={() => {
-                    setactive(link);
+                    setactive(link.accueil);
                   }}
                 >
-                  {link}
+                  {link.accueil}
                 </a>
               </li>
             ))}
@@ -86,17 +89,16 @@ export default function Navigation() {
               {navlinks.map((link) => (
                 <li
                   className={`${
-                    active === link ? "text-white" : " text-gray-400"
+                    active === link.accueil ? "text-white" : " text-gray-400"
                   } hover:text-white text-[18px] `}
-                  key={link.id}
                 >
                   <a
-                    href={`#${link.id}`}
+                    href={`#${link.ref}`}
                     onClick={() => {
-                      setactive(link);
+                      setactive(link.accueil);
                     }}
                   >
-                    {link}
+                    {link.accueil}
                   </a>
                 </li>
               ))}
@@ -105,19 +107,22 @@ export default function Navigation() {
         </div>
       </nav>
 
-      <section className=" container  justify-content-between d-lg-flex mt-lg-5 gap-2 w-full">
+      <section
+        id="accueil"
+        className="  container  justify-content-between d-lg-flex mt-lg-5 gap-2 w-full"
+      >
         <div className="  p-lg-5  flex flex-row">
           <Hero />
           <div>
             <div className=" h4 p-lg-3 text-body-emphasis sm:pt-0 pt-12 ">
               <p className=" font-semibold text-[31px]">
-                bienvenue chez{" "}
+                Bienvenue chez{" "}
                 <span>
                   {" "}
-                  <span className="  boost fw-bold">Boost 237</span>
+                  <span className="  boost fw-bold">Digital academy</span>
                 </span>{" "}
               </p>{" "}
-              Nous creons des solutions <b>Digitale</b> pour votre bussiness et
+              Nous creons des solutions <b>Digitales</b> pour votre bussiness et
               entreprise. Ceci dans le but d'ameliorer votre presence sur les
               plateformes digitales et posseder une audiance importante sur les
               reseaux sociaux.
@@ -157,8 +162,13 @@ export default function Navigation() {
           />
         </div>
       </section>
-      <Partenaire />
-      <Footer />
+      <div id="equipe">
+        <Partenaire />
+      </div>
+
+      <div id="contact">
+        <Footer />
+      </div>
     </>
   );
 }
