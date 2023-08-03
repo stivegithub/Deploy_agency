@@ -3,18 +3,14 @@ function Login() {
   const Item = ({ name, placeholder }) => {
     return (
       <>
-        <div
-          className=" p-2 flex flex-row gap-2
-        "
-        >
-          <div className={` focus:text-blue-500`}>{name}</div>
-          <div>
-            <input
-              type="text"
-              className=" focus:bg-white w-max bg-gray-200 rounded-sm outline-none focus:outline-blue-500  p-2"
-              placeholder={`${placeholder}`}
-            />
-          </div>
+        <div className=" p-2  w-full">
+          <div className={` focus:text-blue-500 float-left w-1/4`}>{name}</div>
+
+          <input
+            type="text"
+            className=" focus:bg-white  w-3/4 bg-gray-200 rounded-md outline-none focus:outline-blue-500  p-2"
+            placeholder={`${placeholder}`}
+          />
         </div>
       </>
     );
@@ -41,7 +37,7 @@ function Login() {
             <div className=" text-center font-bold text-[33px] text-blue-800">
               Inscription
             </div>
-            <div className=" text-center">
+            <div>
               <Item name={`Name`} placeholder={`Entrez votre nom`} />
               <Item name={`Email`} placeholder={`Entrez votre email`} />
               <Item name={`Pays`} placeholder={`Entrez votre pays`} />
@@ -49,7 +45,7 @@ function Login() {
             </div>
 
             <div className=" flex flex-row-reverse">
-              <div className=" pt-2 mx-auto">
+              <div className=" pt-2 ">
                 <Button name={`Envoyer`} />
               </div>
             </div>

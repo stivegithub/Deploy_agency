@@ -35,11 +35,7 @@ export default function Footer() {
             </div>
             <div className="  text-red-600 bg-white rounded-2 p-1">
               {" "}
-              <a
-                href="https://instagram.com/boost._237?igshid=ZGUzMzM3NWJiOQ==
-.
-651835363"
-              >
+              <a href="https://instagram.com/digital_academy2.0?igshid=ZGUzMzM3NWJiOQ==">
                 {" "}
                 <Instagram />
               </a>

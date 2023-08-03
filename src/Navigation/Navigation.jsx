@@ -140,7 +140,7 @@ export default function Navigation() {
 
       <section className="p-lg-3 mt-2 container" id="services">
         <div className=" p-lg-3 boost fw-bold display-2 text-center">
-          Boost 237
+          Nos prestations
         </div>
         <div className=" grid grid-cols-1 gap-3 sm:grid-cols-3">
           <Prestation
