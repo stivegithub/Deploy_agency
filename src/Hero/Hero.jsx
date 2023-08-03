@@ -1,6 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { computer } from "../images/computer.jpg";
 
 export default function Hero() {
   return (

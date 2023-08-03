@@ -1,13 +1,6 @@
-import React, { Component, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./Navigation.css";
-import {
-  DarkMode,
-  ImagesearchRoller,
-  LightMode,
-  Menu,
-  Close,
-} from "@mui/icons-material";
+import { Menu, Close } from "@mui/icons-material";
 import image from "../digital_academy.jpeg";
 import computer from "../images/computer.jpg";
 import Hero from "../Hero/Hero";
@@ -15,10 +8,7 @@ import Partenaire from "../Partenaire/Partenaire";
 import Footer from "../Footer/Footer";
 
 export default function Navigation() {
-  const [mode, setmode] = useState(false);
   const [toggle, settoggle] = useState(false);
-  const light = "backgroundColor:'#f0f2f5'";
-  const dark = " backgroundColor:'red";
   const [active, setactive] = useState("");
   const navlinks = ["accueil", "contact", "equipe"];
 
@@ -58,7 +48,7 @@ export default function Navigation() {
             {navlinks.map((link) => (
               <li
                 className={`${
-                  active == link ? "text-white" : " text-gray-400"
+                  active === link ? "text-white" : " text-gray-400"
                 } hover:text-white text-[18px] `}
                 key={link.id}
               >
@@ -96,7 +86,7 @@ export default function Navigation() {
               {navlinks.map((link) => (
                 <li
                   className={`${
-                    active == link ? "text-white" : " text-gray-400"
+                    active === link ? "text-white" : " text-gray-400"
                   } hover:text-white text-[18px] `}
                   key={link.id}
                 >
