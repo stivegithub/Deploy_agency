@@ -1,32 +1,39 @@
 import React from 'react'
 import './Partenaire.css'
+import master from '../images/master.jpeg'
+import info from '../images/info.jpeg'
+import stive from '../images/stive.jpeg'
 
 export default function Partenaire() {
-  const Items=()=>{
+  const Items=({source, domaine, name})=>{
     return(
       <>
-      <div className="col">
-        <div className=' text-center'> <img src="https://i.pinimg.com/474x/01/eb/1a/01eb1a00b7d3a4fdb63d09dcbebb1157.jpg" alt=""  className=' rounded-circle' width='100px' height='100px'/></div>
-        <div className='  fw-bold text-center hell'>Expert en informatique et reseau</div>
+     
+      <div className="" style={{ width:'200px' }}>
+        <div className=' text-center'> <img src={source} alt=""  className=' rounded-circle' width='160px' height='160px'/></div>
+        <div className=' text-center'><b>{name}</b></div>
+        <div className='text-center hell'>{domaine}</div>
+
 
       </div>
       </>
     )
   }
   return (
-    <div className=' mt-3'>
-        <div className=' p-lg-2 row '>
-         <div className=' '>
-        <div className=' d-flex gap-2 hello'>
-        <Items/>
-          <Items/>
-          <Items/>
-          <Items/>
-        </div>
-         </div>
+<>
+<div className=' text-center mt-3 mb-2 mb-lg-3 display-4 '>NOTRE EQUIPE
+</div>
+<div className='card container overflow-x-scroll mt-sm-3'>
+ <div className=' card-body p-3 '>
+<div className="d-flex p-lg-5 mil justify-content-between">
+<Items source={master} domaine='createur de contenu mister university  ' name='Ruben Fullstop'/>
+  <Items source={info} domaine="Expert en strategie d'influence et marketing digital" name='Tekeu jordan'/>
+  <Items source={stive} domaine="Developpeur d'applications d web et mobile" name='Stive Fossi'/>
+</div>
+ </div>
+</div>
 
-        </div>
-        </div>
+</>
         
    
   )

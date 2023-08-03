@@ -1,16 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import Navigation from './Navigation/Navigation';
-import { useState } from 'react';
-import Partenaire from './Partenaire/Partenaire';
+import Navigation from "./Navigation/Navigation";
+import Login from "./Login/Login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
-    <div >
-      <Partenaire/>
-     {/* <Navigation/> */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigation />} />
+        <Route index path="/training" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

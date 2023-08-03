@@ -29,3 +29,9 @@ background: linear-gradient(to right, #2781CF 0%, #4BCFAC 100%);
 .yellow{
     color: rgb(250, 250, 5);
 }
+
+.taille{
+  height: 100vh;
+  width: 100vw + 10px;
+ 
+}
