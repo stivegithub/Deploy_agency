@@ -11,7 +11,7 @@ function Login() {
           <div>
             <input
               type="text"
-              className=" focus:bg-white w-full bg-gray-200 rounded-sm outline-none focus:outline-blue-500"
+              className=" focus:bg-white w-max bg-gray-200 rounded-sm outline-none focus:outline-blue-500  p-2"
               placeholder={`${placeholder}`}
             />
           </div>
