@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navigation.css";
-import { Menu, Close } from "@mui/icons-material";
+import { Menu, Close, DarkMode, LightMode } from "@mui/icons-material";
 import image from "../digital_academy.jpeg";
 import computer from "../images/computer.jpg";
 import Hero from "../Hero/Hero";
@@ -10,6 +10,8 @@ import Footer from "../Footer/Footer";
 export default function Navigation() {
   const [toggle, settoggle] = useState(false);
   const [active, setactive] = useState("");
+  const [mode, setmode] = useState(false);
+  const [theme, settheme] = useState("");
   const navlinks = [
     { id: "1", accueil: "Accueil", ref: "accueil" },
     { id: "2", accueil: "Contact", ref: "equipe" },
@@ -83,9 +85,9 @@ export default function Navigation() {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6  bg-gradient-to-tl   absolute from-black top-12 right-0  mx-0 my-2 min-w[140px] z-10 rounded-xl`}
+            } p-4  bg-gradient-to-tl   absolute from-black top-12 right-0  mx-0 my-2 min-w[140px] z-10 rounded-xl`}
           >
-            <ul className=" flex flex-col  list-none  gap-4">
+            <ul className=" flex flex-col  list-none  gap-3">
               {navlinks.map((link) => (
                 <li
                   className={`${
@@ -102,6 +104,33 @@ export default function Navigation() {
                   </a>
                 </li>
               ))}
+
+              <li className="flex">
+                <div className="">
+                  {!mode ? (
+                    <LightMode className=" text-yellow-300" />
+                  ) : (
+                    <DarkMode />
+                  )}
+                </div>
+                <select
+                  name=""
+                  id=""
+                  className="p-1 bg-white focus:outline-none rounded-md"
+                >
+                  <option className=" rounded-md">Clair</option>
+                  <div className=" divide-y p3"></div>
+                  <option
+                    value={`stive`}
+                    onChange={(e) => {
+                      settheme(e.target.value);
+                    }}
+                  >
+                    Sombre
+                  </option>
+                </select>
+              </li>
+              <li>{theme}</li>
             </ul>
           </div>
         </div>
