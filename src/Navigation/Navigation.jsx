@@ -8,10 +8,11 @@ import Partenaire from "../Partenaire/Partenaire";
 import Footer from "../Footer/Footer";
 
 export default function Navigation() {
+  const sombre = "sombre";
   const [toggle, settoggle] = useState(false);
   const [active, setactive] = useState("");
   const [mode, setmode] = useState(false);
-  const [theme, settheme] = useState("");
+  const [theme, settheme] = useState("clair");
   const navlinks = [
     { id: "1", accueil: "Accueil", ref: "accueil" },
     { id: "2", accueil: "Contact", ref: "equipe" },
@@ -107,30 +108,27 @@ export default function Navigation() {
 
               <li className="flex">
                 <div className="">
-                  {!mode ? (
+                  {theme !== sombre ? (
                     <LightMode className=" text-yellow-300" />
                   ) : (
                     <DarkMode />
                   )}
                 </div>
                 <select
+                  onChange={(e) => {
+                    var stive = e.target.value;
+                    console.log(stive);
+                    stive === "sombre" ? (mode = true) : (mode = false);
+                  }}
                   name=""
                   id=""
                   className="p-1 bg-white focus:outline-none rounded-md"
                 >
                   <option className=" rounded-md">Clair</option>
                   <div className=" divide-y p3"></div>
-                  <option
-                    value={`stive`}
-                    onChange={(e) => {
-                      settheme(e.target.value);
-                    }}
-                  >
-                    Sombre
-                  </option>
+                  <option>Sombre</option>
                 </select>
               </li>
-              <li>{theme}</li>
             </ul>
           </div>
         </div>

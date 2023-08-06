@@ -29,8 +29,8 @@ export default function Partenaire() {
   };
   return (
     <>
-      <div className=" text-center mt-3 mb-2 mb-lg-3 display-4 ">
-        NOTRE EQUIPE
+      <div className=" p-lg-3 boost fw-bold display-2 text-center">
+        Notre Equipe
       </div>
       <div className="card container overflow-x-scroll mt-sm-3">
         <div className=" card-body p-3 ">
