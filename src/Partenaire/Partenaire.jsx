@@ -4,7 +4,7 @@ import master from "../images/master.jpeg";
 import info from "../images/info.jpeg";
 import stive from "../images/stive.jpeg";
 
-export default function Partenaire() {
+export default function Partenaire({ ColorText }) {
   const Items = ({ source, domaine, name }) => {
     return (
       <>
@@ -20,9 +20,11 @@ export default function Partenaire() {
             />
           </div>
           <div className=" text-center">
-            <b>{name}</b>
+            <b className={`${ColorText("text-gray-300")}`}>{name}</b>
           </div>
-          <div className="text-center hell">{domaine}</div>
+          <div className={`text-center hell ${ColorText("text-white")}`}>
+            {domaine}
+          </div>
         </div>
       </>
     );
@@ -32,7 +34,11 @@ export default function Partenaire() {
       <div className=" p-lg-3 boost fw-bold display-2 text-center">
         Notre Equipe
       </div>
-      <div className="card container overflow-x-scroll mt-sm-3">
+      <div
+        className={`card container overflow-x-scroll mt-sm-3 ${ColorText(
+          "bg-slate-800"
+        )}`}
+      >
         <div className=" card-body p-3 ">
           <div className="d-flex p-lg-5 mil justify-content-between">
             <Items

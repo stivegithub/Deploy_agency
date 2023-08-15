@@ -8,11 +8,9 @@ import Partenaire from "../Partenaire/Partenaire";
 import Footer from "../Footer/Footer";
 
 export default function Navigation() {
-  const sombre = "sombre";
   const [toggle, settoggle] = useState(false);
   const [active, setactive] = useState("");
-  const [mode, setmode] = useState(false);
-  const [theme, settheme] = useState("clair");
+  const [theme, settheme] = useState("Clair");
   const navlinks = [
     { id: "1", accueil: "Accueil", ref: "accueil" },
     { id: "2", accueil: "Contact", ref: "equipe" },
@@ -29,9 +27,50 @@ export default function Navigation() {
               alt=""
               className=" sm:h-[474px] rounded-tl-lg rounded-tr-lg  w-full h20"
             />
-            <div className=" text-center font-semibold">{title}</div>
+            <div
+              className={` text-center font-semibold ${ColorText(
+                "text-white"
+              )}`}
+            >
+              {title}
+            </div>
           </div>
         </div>
+      </>
+    );
+  };
+
+  const ColorText = (effet, ancien) => {
+    if (theme === "Sombre") {
+      return effet;
+    } else {
+      return ancien;
+    }
+  };
+
+  const ToogleMode = () => {
+    return (
+      <>
+        <li className="flex">
+          <div className="">
+            {theme === "Sombre" ? <DarkMode className="text-white" /> : null}
+            {theme === "Clair" ? (
+              <LightMode className=" text-yellow-300" />
+            ) : null}
+          </div>
+          <select
+            onChange={(e) => {
+              settheme(e.target.value);
+            }}
+            name=""
+            id=""
+            className="p-1 bg-white focus:outline-none rounded-md"
+          >
+            <option className=" rounded-md">Clair</option>
+            <div className=" divide-y p3"></div>
+            <option>Sombre</option>
+          </select>
+        </li>
       </>
     );
   };
@@ -39,7 +78,12 @@ export default function Navigation() {
   return (
     <>
       <nav className=" w-full flex justify-between items-center  mx-auto fixed sm:static z-50">
-        <div className=" sm:container w-full flex justify-between items-center  mx-auto bg-slate-900">
+        <div
+          className={`  sm:container w-full flex justify-between items-center  mx-auto  ${ColorText(
+            "bg-slate-800",
+            "bg-blue-600"
+          )} `}
+        >
           <div className=" flex items-center gap-2">
             <img
               src={image}
@@ -68,6 +112,28 @@ export default function Navigation() {
                 </a>
               </li>
             ))}
+            <li className="flex">
+              <div className="">
+                {theme === "Sombre" ? (
+                  <DarkMode className="text-white" />
+                ) : null}
+                {theme === "Clair" ? (
+                  <LightMode className=" text-yellow-300" />
+                ) : null}
+              </div>
+              <select
+                onChange={(e) => {
+                  settheme(e.target.value);
+                }}
+                name=""
+                id=""
+                className="p-1 bg-white focus:outline-none rounded-md"
+              >
+                <option className=" rounded-md">Clair</option>
+                <div className=" divide-y p3"></div>
+                <option>Sombre</option>
+              </select>
+            </li>
           </ul>
           <div className=" sm:hidden flex flex-1 justify-end items-center">
             <div
@@ -108,17 +174,16 @@ export default function Navigation() {
 
               <li className="flex">
                 <div className="">
-                  {theme !== sombre ? (
+                  {theme === "Sombre" ? (
+                    <DarkMode className="text-white" />
+                  ) : null}
+                  {theme === "Clair" ? (
                     <LightMode className=" text-yellow-300" />
-                  ) : (
-                    <DarkMode />
-                  )}
+                  ) : null}
                 </div>
                 <select
                   onChange={(e) => {
-                    var stive = e.target.value;
-                    console.log(stive);
-                    stive === "sombre" ? (mode = true) : (mode = false);
+                    settheme(e.target.value);
                   }}
                   name=""
                   id=""
@@ -136,23 +201,29 @@ export default function Navigation() {
 
       <section
         id="accueil"
-        className="  container  justify-content-between d-lg-flex mt-lg-5 gap-2 w-full"
+        className={`container  justify-content-between d-lg-flex mt-lg-5 gap-2 w-full ${ColorText(
+          "bg-slate-800"
+        )}`}
       >
         <div className="  p-lg-5  flex flex-row">
           <Hero />
           <div>
             <div className=" h4 p-lg-3 text-body-emphasis sm:pt-0 pt-12 ">
               <p className=" font-semibold text-[31px]">
-                Bienvenue chez{" "}
+                <span className={`${ColorText("text-white")}`}>
+                  Bienvenue chez{" "}
+                </span>
                 <span>
                   {" "}
                   <span className="  boost fw-bold">Digital academy</span>
                 </span>{" "}
               </p>{" "}
-              Nous creons des solutions <b>Digitales</b> pour votre bussiness et
-              entreprise. Ceci dans le but d'ameliorer votre presence sur les
-              plateformes digitales et posseder une audiance importante sur les
-              reseaux sociaux.
+              <span className={`${ColorText("text-white")}`}>
+                Nous creons des solutions <b>Digitales</b> pour votre bussiness
+                et entreprise. Ceci dans le but d'ameliorer votre presence sur
+                les plateformes digitales et posseder une audiance importante
+                sur les reseaux sociaux.
+              </span>
             </div>
             <div>
               <div className="p-lg-3 text-center mt-sm-4 ">
@@ -170,7 +241,11 @@ export default function Navigation() {
         </div>
       </section>
 
-      <section className="p-lg-3 mt-2 container" id="services">
+      <section
+        className={`p-lg-3 mt-2 container" id="services ${ColorText(
+          "bg-slate-800"
+        )}`}
+      >
         <div className=" p-lg-3 boost fw-bold display-2 text-center">
           Nos prestations
         </div>
@@ -190,11 +265,11 @@ export default function Navigation() {
         </div>
       </section>
       <div id="equipe">
-        <Partenaire />
+        <Partenaire ColorText={ColorText} />
       </div>
 
       <div id="contact">
-        <Footer />
+        <Footer ColorText={ColorText} />
       </div>
     </>
   );

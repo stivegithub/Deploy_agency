@@ -8,10 +8,14 @@ import {
   Copyright,
   PhoneIphone,
 } from "@mui/icons-material";
-export default function Footer() {
+export default function Footer({ ColorText }) {
   return (
     <>
-      <div className=" flex justify-between p-2 ">
+      <div
+        className={`flex justify-between p-2  ${ColorText(
+          "bg-slate-800"
+        )} ${ColorText("text-white")}`}
+      >
         <div> Profiter de la fomation actuelle.</div>
         <div className="">
           <button className=" px-3 py-2 focus:bg-blue-400 bg-blue-800 text-white font-semibold rounded-lg hover:bg-blue-400">
@@ -55,7 +59,11 @@ export default function Footer() {
         </div>
       </div>
       <div></div>
-      <div className=" bg-white text-center text-black pt-2 px-0 ">
+      <div
+        className={`text-center pt-2 px-0 ${ColorText(
+          "bg-slate-800"
+        )}  ${ColorText("text-white")} `}
+      >
         <div>
           designed by{" "}
           <a
@@ -65,7 +73,12 @@ export default function Footer() {
             digital way cameroun
           </a>
         </div>
-        <div className=" bg-black text-white px-1">
+        <div
+          className={`  text-white px-1 ${ColorText(
+            "bg-slate-800",
+            "bg-blue-700"
+          )} `}
+        >
           <Copyright />
           2023
         </div>
